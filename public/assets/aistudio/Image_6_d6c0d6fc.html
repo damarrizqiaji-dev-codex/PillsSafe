@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>PillsSafe - Sistem Simulasi Tata Kelola Farmakovigilans Lingkungan</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-container": "#5bb8fe",
+          "tertiary": "#002575",
+          "surface-container": "#eaedff",
+          "tertiary-fixed-dim": "#b6c4ff",
+          "surface": "#faf8ff",
+          "primary-container": "#0f4c3a",
+          "on-secondary-fixed-variant": "#004b73",
+          "error-container": "#ffdad6",
+          "surface-container-high": "#e2e7ff",
+          "primary-fixed": "#b4efd6",
+          "on-secondary-container": "#00476e",
+          "surface-container-low": "#f2f3ff",
+          "on-secondary": "#ffffff",
+          "inverse-primary": "#99d3ba",
+          "on-surface": "#131b2e",
+          "on-surface-variant": "#404944",
+          "on-background": "#131b2e",
+          "on-primary-fixed": "#002117",
+          "surface-container-highest": "#dae2fd",
+          "on-primary-container": "#82bba4",
+          "surface-tint": "#306855",
+          "on-tertiary-fixed": "#00164e",
+          "outline-variant": "#bfc9c3",
+          "on-tertiary-container": "#95acff",
+          "surface-variant": "#dae2fd",
+          "background": "#faf8ff",
+          "inverse-on-surface": "#eef0ff",
+          "primary": "#003426",
+          "error": "#ba1a1a",
+          "on-error-container": "#93000a",
+          "outline": "#707974",
+          "on-primary": "#ffffff",
+          "surface-bright": "#faf8ff",
+          "secondary": "#006398",
+          "on-primary-fixed-variant": "#15503e",
+          "secondary-fixed": "#cce5ff",
+          "secondary-fixed-dim": "#93ccff",
+          "on-tertiary-fixed-variant": "#264191",
+          "tertiary-fixed": "#dce1ff",
+          "tertiary-container": "#213d8d",
+          "surface-container-lowest": "#ffffff",
+          "surface-dim": "#d2d9f4",
+          "on-error": "#ffffff",
+          "on-secondary-fixed": "#001d31",
+          "primary-fixed-dim": "#99d3ba",
+          "inverse-surface": "#283044",
+          "on-tertiary": "#ffffff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "space-md": "1rem",
+          "space-xl": "2.5rem",
+          "gutter": "1.5rem",
+          "space-lg": "1.5rem",
+          "margin-mobile": "1rem",
+          "gutter-lg": "2rem",
+          "gutter-sm": "1rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem"
+        },
+        "fontFamily": {
+          "data-tabular": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "label-md": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "Inter"
+          ],
+          "label-lg": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Inter"
+          ]
+        },
+        "fontSize": {
+          "data-tabular": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-sm": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-lg": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      }
+    }
+  };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low px-gutter py-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-secondary">info</span><span class="tracking-wide">DATA SIMULASI — UNTUK DEMONSTRASI PROTOTIPE GAGASAN | JALUR BIODEGRADASI &amp; PENGUJIAN MEMERLUKAN VALIDASI TEKNIS</span></div><div class="hidden md:flex items-center gap-space-sm"><span class="inline-flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-data-tabular text-data-tabular"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Sistem Simulasi Aktif</span><span class="text-outline-variant">|</span><span class="font-label-sm text-label-sm text-on-surface-variant">v1.2.0-SIM</span></div></div><div class="h-20 w-full px-gutter flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="PillsSafe Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBV2WTScjksFA1SGnanv857FJrtMyDCdhqq43wY8TtsLKGnHUPKsbJYhIrDGfA5ufvFCr6DzT-wKzJGAxU_Sea3DMvBaGEZpqTkA8CIHJ13eyPAgJaCrDaqYCCmMBSwotosufUyWwnDJcHEus4LqkjQFStC_LdLICt5xRwysvwaQgVkCQZ9ofUfI_jrUStTvl5hCaCk5ynE1aqNwJWUbmsFoKjnAr6-dQJwrBFJlS8aSBEBB_pE3E"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-none tracking-tight">PillsSafe</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight tracking-wider uppercase">Eco-Pharmacovigilance</span></div></div><nav class="hidden xl:flex items-center gap-space-xs pl-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded"><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="beranda" href="#">Beranda</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="laporkan-obat" href="#">Laporkan Obat</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="lacak-laporan" href="#">Lacak Laporan</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-primary-container text-on-primary-container font-label-md rounded" data-path="titik-pengumpulan" href="#">Titik Pengumpulan</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="jalur-pengolahan" href="#">Jalur Pengolahan</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="informasi-bantuan" href="#">Informasi &amp; Bantuan</a></nav></div><div class="flex items-center gap-space-md"><div class="relative flex items-center bg-surface-container-low rounded p-space-xs gap-space-xs"><span class="material-symbols-outlined text-[18px] text-on-surface-variant pl-1">badge</span><label class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap" for="role-switcher">Peran:</label><select class="bg-surface-container-lowest font-label-md text-label-md text-on-surface rounded px-space-xs py-1 focus:outline-none" id="role-switcher"><option selected="">Pelapor Publik</option><option>Operator Fasilitas</option><option>Pengelola Teknis</option></select><span class="hidden lg:inline-flex items-center px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Simulasi</span></div><div class="flex items-center gap-space-xs pl-space-xs"><button aria-label="Notifikasi" class="w-9 h-9 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Simulation Notice Banner -->
+<div class="w-full bg-surface-container-low px-gutter py-space-sm">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-space-xs font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-data-tabular text-data-tabular uppercase font-semibold text-secondary tracking-wider">RUN-ID: SIM-BD-2024-098</span>
+<span class="text-outline-variant">|</span>
+<span class="text-on-surface-variant">PREDIKSI KAPASITAS KANTONG: TERVALIDASI</span>
+</div>
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-data-tabular text-data-tabular text-on-surface">DATA SIMULASI UNTUK DEMONSTRASI — STATUS TITIK LOKASI DIBARUI TIAP 15 MENIT</span>
+</div>
+</div>
+</div>
+<!-- Main Content Container -->
+<div class="w-full max-w-7xl mx-auto px-gutter py-space-lg flex flex-col gap-space-xl">
+<!-- Title Area & High-Level Security Advisory -->
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase tracking-wide">Direktori Terakreditasi</span>
+<span class="text-outline-variant text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fasilitas Berlisensi Bio-Drop v2.4</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">Jaringan Titik Pengumpulan Resmi (Bio-Drop)</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Temukan lokasi penerimaan resmi terdekat untuk menyerahkan obat kedaluwarsa rumah tangga Anda secara terdokumentasi dan terkendali secara lingkungan.</p>
+</div>
+<!-- Telemetry Summary Pill -->
+<div class="flex items-center gap-space-md bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Unit Terhubung</span>
+<span class="font-data-tabular text-data-tabular text-primary font-bold">14 Titik Aktif</span>
+</div>
+</div>
+<div class="w-px h-8 bg-surface-container"></div>
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rerata Kuota</span>
+<span class="font-data-tabular text-data-tabular text-secondary font-bold">48.2% Tersedia</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Protocol Critical Alert Box -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<div class="flex items-start gap-space-md pl-space-xs">
+<div class="w-9 h-9 rounded-lg bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-error uppercase tracking-wider font-semibold">PERINGATAN PROTOKOL FARMAKOVIGILANS LINGKUNGAN</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">WAJIB</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Jangan pernah membuang obat ke wastafel, saluran air kloset, selokan terbuka, atau tempat sampah umum. Tindakan tersebut menginfiltrasi senyawa persisten ke dalam air tanah, merusak mikroflora perairan, dan mengakselerasi <strong class="text-on-surface font-semibold">resistensi antimikroba (AMR)</strong>. Serahkan seluruh limbah sediaan ke unit Bio-Drop terdaftar untuk proses netralisasi &amp; peruraian enzimatik termonitor.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Interactive Map Preview & Geo-Context Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- Embedded Visual Geo-Map Representation -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">pin_drop</span>
+<span class="font-headline-sm text-headline-sm text-primary">Sebaran Geospasial Bio-Drop</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm font-data-tabular">(Zona Radius 6.0 KM)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Posisi GPS Terkunci
+            </span>
+</div>
+</div>
+<!-- Simulated Interactive Map Component -->
+<div class="w-full h-80 rounded-lg relative overflow-hidden bg-cover bg-center shadow-inner flex items-end p-space-md" data-alt="High quality aerial satellite cartography view of an organized urban district in Indonesia, showing clean green zones and healthcare facility markers with pinpoint indicators in dark emerald green and medical cyan tones, clean clinical aesthetic without blur" data-location="Jakarta Pusat, Indonesia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfVnbril3gsx-SrD2LtpFKsR37HQ6KgJNmBAL0IH6_tXf4GJJZjDaLadZuTF-Mf6j8aK8XhIkv3FKqFKM6ZSCDyC_oVUQG34X2u6DzoRGfhy0_585p7dwQuMYeidwFsput5FA3FGDVdpuS6IZ7QNuVVdMadgFubhERrXpceKs5mCHtpSLkpou8ErubUljUvYW8zs1wMD37hABY16EMB3Y4Ztos95nql6_NleEeZmK3RZ-pgeIj6w')">
+<!-- Glass Overlay Badge on Map -->
+<div class="bg-surface/95 backdrop-blur-sm rounded-lg p-space-sm max-w-sm shadow-md flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Lokasi Anda Terdeteksi</span>
+<span class="font-headline-sm text-headline-sm text-primary text-sm truncate">Wilayah Sukamaju, Sektor Barat</span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">Terdekat: 1.2 km (Puskesmas Sukamaju)</span>
+</div>
+</div>
+<!-- Micro Sensor Legend Pin Floating -->
+<div class="absolute top-4 right-4 bg-surface/95 backdrop-blur-sm px-space-sm py-1 rounded text-on-surface font-label-sm text-label-sm shadow flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Tersedia
+            <span class="w-2 h-2 rounded-full bg-tertiary"></span> Sibuk
+            <span class="w-2 h-2 rounded-full bg-error"></span> Penuh
+          </div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span>Memetakan 4 titik penerimaan aktif dalam jangkauan transit tercepat</span>
+<a class="text-secondary hover:underline flex items-center gap-0.5" href="#daftar-titik">
+            Lompat ke daftar detail <span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+</a>
+</div>
+</div>
+<!-- Rapid Specimen Readiness Checklist Panel -->
+<div class="lg:col-span-4 bg-surface-container rounded-xl p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Cek Kesiapan Sampel</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sebelum mendatangi dropbox, pastikan kepatuhan fisik wadah obat guna menjaga keselamatan petugas biohazard.</p>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Identitas Label Terbaca</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Nama zat aktif atau merek sebaiknya masih dapat diidentifikasi tim teknis.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Wadah Cairan Anti-Bocor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tutup botol sirup dikencangkan &amp; dilapisi isolasi jika tutup retak.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">cancel</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Bukan Jarum Suntik Terbuka</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Limbah benda tajam membutuhkan kotak disposal khusus (B3 Medis).</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-space-sm">
+<button class="w-full py-2 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded flex items-center justify-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">qr_code_scanner</span>
+<span>Buat ID Tiket Serah Terima</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Search Engine & Multi-parameter Filters -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md" id="daftar-titik">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Filter &amp; Penelusuran Fasilitas</span>
+</div>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">Menampilkan 4 dari 14 Titik Terkualifikasi</span>
+</div>
+<!-- Main Search Input -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm">
+<div class="md:col-span-6 relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-on-surface-variant">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant/70 focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all" id="search-input" placeholder="Cari nama fasilitas, kecamatan, kelurahan, atau jalan..." type="text"/>
+</div>
+<!-- Filter Select 1: Sediaan / Kategori -->
+<div class="md:col-span-3">
+<select class="w-full h-10 px-3 rounded bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all" id="filter-category">
+<option value="all">Semua Kategori Obat</option>
+<option value="analgesic">Hanya Parasetamol &amp; Analgesik</option>
+<option value="nsaid">Menerima Diklofenak (NSAID)</option>
+<option value="solid">Hanya Sediaan Padat (Tablet/Kapsul)</option>
+<option value="liquid">Menerima Sirup / Cairan</option>
+</select>
+</div>
+<!-- Filter Select 2: Status Layanan -->
+<div class="md:col-span-3">
+<select class="w-full h-10 px-3 rounded bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all" id="filter-status">
+<option value="all">Semua Status Operasional</option>
+<option value="open">Buka Hari Ini</option>
+<option value="lock">Dilengkapi Penguncian Sekunder</option>
+<option value="quota">Kapasitas Tersedia (&gt;30%)</option>
+<option value="24h">Layanan 24 Jam</option>
+</select>
+</div>
+</div>
+<!-- Quick Filter Pills -->
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">Filter Populer:</span>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">lock</span> Penguncian Tertutup Otomatis
+        </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Buka 24 Jam
+        </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">ac_unit</span> Suhu Terkendali
+        </button>
+<button class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">distance</span> Radius &lt; 5 KM
+        </button>
+</div>
+</div>
+<!-- Bio-Drop Location Cards Directory (4 Distinct Representative Nodes) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-start">
+<!-- Point 1: Puskesmas Sukamaju -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<!-- Top Row: Badge, ID & Distance -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+                  HUB UTAMA WILAYAH
+                </span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">ID: BD-001-SKM</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary leading-tight">
+                Bio-Drop Puskesmas Sukamaju
+              </h2>
+<span class="font-label-md text-label-md text-secondary">Pusat Penerimaan Wilayah Barat</span>
+</div>
+<!-- Distance pill -->
+<div class="flex flex-col items-end shrink-0">
+<span class="inline-flex items-center gap-0.5 px-2 py-1 rounded bg-surface-container text-on-surface font-data-tabular text-data-tabular font-bold">
+<span class="material-symbols-outlined text-[14px] text-primary">navigation</span> 1.2 km
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Est. 4 mnt</span>
+</div>
+</div>
+<!-- Address & Operational Schedule -->
+<div class="grid grid-cols-1 gap-space-xs py-space-xs bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface">Jl. Sejahtera No. 12, Kelurahan Sukamaju, Jakarta</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">schedule</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Senin – Sabtu, 08.00 – 16.00 WIB</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Istirahat sanitasi: 12.00 - 13.00 WIB</span>
+</div>
+</div>
+</div>
+<!-- Accepted Drugs & Specifications -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Sediaan Obat Diterima:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Tablet &amp; Kaplet</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Kapsul Tersegel</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Sirup Botol Kaca/Plastik</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Kandidat Parasetamol &amp; NSAID</span>
+</div>
+</div>
+<!-- Capacity Bar & Status Sensor -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Status Kapasitas: Aktif &amp; Terbuka
+              </span>
+<span class="font-data-tabular text-data-tabular font-bold text-primary">Tersedia 65% kuota batch</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 35%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tampungan kontainer: 140 / 400 kg tercatat</span>
+</div>
+<!-- Facility Highlights Checklist -->
+<div class="flex items-center gap-space-sm pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">ac_unit</span> Lemari Pendingin Sementara
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">barcode_scanner</span> Scanner Barcode
+            </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm pt-space-xs border-t-0">
+<button class="flex-1 py-2 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">check_box</span>
+<span>Pilih Lokasi Ini</span>
+</button>
+<button class="px-3 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Prosedur</span>
+</button>
+</div>
+</div>
+<!-- Point 2: Bio-Drop Farmasi RSUD Peduli Sehat -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<!-- Top Row: Badge, ID & Distance -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+                  LAYANAN 24 JAM
+                </span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">ID: BD-002-RSUD</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary leading-tight">
+                Bio-Drop Farmasi RSUD Peduli Sehat
+              </h2>
+<span class="font-label-md text-label-md text-secondary">Loket Farmasi Rawat Jalan Terpadu</span>
+</div>
+<!-- Distance pill -->
+<div class="flex flex-col items-end shrink-0">
+<span class="inline-flex items-center gap-0.5 px-2 py-1 rounded bg-surface-container text-on-surface font-data-tabular text-data-tabular font-bold">
+<span class="material-symbols-outlined text-[14px] text-primary">navigation</span> 3.5 km
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Est. 11 mnt</span>
+</div>
+</div>
+<!-- Address & Operational Schedule -->
+<div class="grid grid-cols-1 gap-space-xs py-space-xs bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface">Jl. Kesehatan Raya No. 45, Kompleks RSUD Gedung B Lantai 1</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">all_inclusive</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Buka 24 Jam Tanpa Libur</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Penerimaan dilayani oleh asisten apoteker jaga</span>
+</div>
+</div>
+</div>
+<!-- Accepted Drugs & Specifications -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Sediaan Obat Diterima:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Semua Oral Bebas &amp; Terbatas</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Tablet Retard / Sustained</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Antibiotik Oral Kedaluwarsa</span>
+</div>
+</div>
+<!-- Capacity Bar & Status Sensor -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Status Kapasitas: Aktif (Operasional)
+              </span>
+<span class="font-data-tabular text-data-tabular font-bold text-primary">Tersedia 40% kuota batch</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 60%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tampungan kontainer: 480 / 800 kg tercatat</span>
+</div>
+<!-- Facility Highlights Checklist -->
+<div class="flex items-center gap-space-sm pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">security</span> Pengawasan CCTV 24/7
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span> Kunci Segel Elektronik
+            </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm pt-space-xs border-t-0">
+<button class="flex-1 py-2 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">check_box</span>
+<span>Pilih Lokasi Ini</span>
+</button>
+<button class="px-3 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Prosedur</span>
+</button>
+</div>
+</div>
+<!-- Point 3: Apotek Kimia Farma Mitra Lestari -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<!-- Top Row: Badge, ID & Distance -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+                  JARINGAN RITEL RESMI
+                </span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">ID: BD-003-KFL</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary leading-tight">
+                Bio-Drop Kimia Farma Mitra Lestari
+              </h2>
+<span class="font-label-md text-label-md text-secondary">Apotek Jejaring Farmakovigilans</span>
+</div>
+<!-- Distance pill -->
+<div class="flex flex-col items-end shrink-0">
+<span class="inline-flex items-center gap-0.5 px-2 py-1 rounded bg-surface-container text-on-surface font-data-tabular text-data-tabular font-bold">
+<span class="material-symbols-outlined text-[14px] text-primary">navigation</span> 4.1 km
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Est. 15 mnt</span>
+</div>
+</div>
+<!-- Address & Operational Schedule -->
+<div class="grid grid-cols-1 gap-space-xs py-space-xs bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface">Jl. Sudirman No. 88 (Sebelah Bank Mandiri Cabang Sudirman)</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">schedule</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Setiap Hari, 09.00 – 21.00 WIB</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Buka di hari libur nasional &amp; akhir pekan</span>
+</div>
+</div>
+</div>
+<!-- Accepted Drugs & Specifications -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Sediaan Obat Diterima:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Khusus Sediaan Padat (Tablet/Kapsul)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Kemasan Blister &amp; Strip</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">Tidak Menerima Sirup Cair</span>
+</div>
+</div>
+<!-- Capacity Bar & Status Sensor (Near Full Indicator) -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-error"></span> Status Kapasitas: Hampir Penuh (Peringatan)
+              </span>
+<span class="font-data-tabular text-data-tabular font-bold text-error">Tersedia 15% kuota batch</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 85%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Penjemputan terjadwal: Besok pukul 10.00 WIB</span>
+</div>
+<!-- Facility Highlights Checklist -->
+<div class="flex items-center gap-space-sm pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">local_convenience_store</span> Akses Parkir Depan Luas
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">point_of_sale</span> Petugas Farmasi Terlatih
+            </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm pt-space-xs border-t-0">
+<button class="flex-1 py-2 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">check_box</span>
+<span>Pilih Lokasi Ini</span>
+</button>
+<button class="px-3 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Prosedur</span>
+</button>
+</div>
+</div>
+<!-- Point 4: Bio-Drop Depo Lingkungan Komunitas Hijau -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<!-- Top Row: Badge, ID & Distance -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+                  POS KOMUNITAS LINGKUNGAN
+                </span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">ID: BD-004-DKH</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary leading-tight">
+                Bio-Drop Depo Komunitas Hijau
+              </h2>
+<span class="font-label-md text-label-md text-secondary">Pos Pengumpulan Swadaya Binaan DLH</span>
+</div>
+<!-- Distance pill -->
+<div class="flex flex-col items-end shrink-0">
+<span class="inline-flex items-center gap-0.5 px-2 py-1 rounded bg-surface-container text-on-surface font-data-tabular text-data-tabular font-bold">
+<span class="material-symbols-outlined text-[14px] text-primary">navigation</span> 5.8 km
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Est. 20 mnt</span>
+</div>
+</div>
+<!-- Address & Operational Schedule -->
+<div class="grid grid-cols-1 gap-space-xs py-space-xs bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">location_on</span>
+<span class="font-body-sm text-body-sm text-on-surface">Gedung Serbaguna RW 05, Kelurahan Bunga Indah</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">event</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Sabtu &amp; Minggu Saja, 09.00 – 15.00 WIB</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hari kerja: dropbox terkunci mandiri</span>
+</div>
+</div>
+</div>
+<!-- Accepted Drugs & Specifications -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Sediaan Obat Diterima:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Salep &amp; Krim Tertutup</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Tablet / Kapsul Rumah Tangga</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Parasetamol Non-Komersial</span>
+</div>
+</div>
+<!-- Capacity Bar & Status Sensor -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Status Kapasitas: Aktif (Longgar)
+              </span>
+<span class="font-data-tabular text-data-tabular font-bold text-primary">Tersedia 78% kuota batch</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 22%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tampungan kontainer: 55 / 250 kg tercatat</span>
+</div>
+<!-- Facility Highlights Checklist -->
+<div class="flex items-center gap-space-sm pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">recycling</span> Edukasi Daur Ulang Kotak Kertas
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> Dikelola Relawan Kader Sehat
+            </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm pt-space-xs border-t-0">
+<button class="flex-1 py-2 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">check_box</span>
+<span>Pilih Lokasi Ini</span>
+</button>
+<button class="px-3 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Prosedur</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Infographic: 4-Step Self-Handover Protocol -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs pb-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">STANDAR PROSEDUR OPERASIONAL</span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">SOP-ENV-PHARMA-04</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Panduan 4 Langkah Serah Terima Mandiri</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Ikuti langkah terarah ini untuk memastikan spesimen obat terlacak secara valid sejak dari tangan Anda hingga ke reaktor peruraian.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">download</span> Unduh PDF Panduan Warga
+          </span>
+</div>
+</div>
+<!-- 4 Stepper Cards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-md relative group hover:bg-surface-container transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center font-bold">
+                1
+              </span>
+<span class="material-symbols-outlined text-primary text-[24px]">pill</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pertahankan Kemasan Primer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Pastikan obat tetap berada dalam blister atau strip aslinya jika memungkinkan. <strong class="text-on-surface font-medium">Jangan pernah melepas tablet/kapsul satu per satu</strong> ke wadah terbuka guna menghindari kontaminasi silang dan risiko uap senyawa.
+              </p>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">
+              Kondisi: Tertutup &amp; Kering
+            </span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-md relative group hover:bg-surface-container transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center font-bold">
+                2
+              </span>
+<span class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Masukkan Wadah Sekunder</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Satukan seluruh obat yang akan diserahkan ke dalam wadah sekunder berupa kantong kertas ramah lingkungan, amplop tebal, atau pouch tertutup. Hindari penggunaan kantong plastik sekali pakai tipis yang mudah sobek.
+              </p>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">
+              Wadah: Kantong Kertas / Box
+            </span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-md relative group hover:bg-surface-container transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center font-bold">
+                3
+              </span>
+<span class="material-symbols-outlined text-secondary text-[24px]">confirmation_number</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Lampirkan Kode Laporan</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Tuliskan 8-digit <strong class="text-on-surface font-medium">Kode Laporan PillsSafe</strong> pada bagian luar wadah, atau simpan tangkapan layar kode QR dari aplikasi untuk dipindai oleh barcode scanner unit Bio-Drop di lokasi.
+              </p>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="inline-block px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm">
+              Format: PLS-XXXX-2024
+            </span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-md relative group hover:bg-surface-container transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm flex items-center justify-center font-bold">
+                4
+              </span>
+<span class="material-symbols-outlined text-primary-container text-[24px]">verified</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pemindaian &amp; Validasi Masuk</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Petugas dropbox atau scanner otonom memindai wadah Anda. Pintu kompartemen membuka dan status laporan di dashboard Anda seketika berubah menjadi <strong class="text-primary font-medium">'Diterima di Titik Kumpul'</strong>.
+              </p>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="inline-block px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+              Status: Batch Terkunci Resmi
+            </span>
+</div>
+</div>
+</div>
+<!-- Protocol Security Verification Footer inside Infographic -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">security_update_good</span>
+<span>Setiap unit Bio-Drop dilengkapi segel tamper-evident mekanis dan sensor timbangan analitik presisi 0.1g.</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm">Butuh bantuan di lokasi?</span>
+<a class="font-label-sm text-label-sm text-secondary font-semibold hover:underline" href="#">Hubungi Hotline Operator</a>
+</div>
+</div>
+</div>
+<!-- Verification / Audit Callout Bar for Simulation Transparency -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[22px]">science</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Ingin Mendaftarkan Fasilitas Kesehatan Anda sebagai Mitra Bio-Drop?</span>
+<span class="font-body-sm text-body-sm">Puskesmas, klinik swasta, dan apotek berizin dapat bergabung dalam jejaring pilot project farmakovigilans lingkungan hidup nasional.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-4 py-2 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded transition-colors shadow-sm" type="button">
+          Unduh Kriteria Teknis
+        </button>
+<button class="px-4 py-2 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded transition-colors shadow-sm" type="button">
+          Registrasi Mitra Fasilitas
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interaction: Client-side search and filter prototype simulation
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const categorySelect = document.getElementById('filter-category');
+    const statusSelect = document.getElementById('filter-status');
+
+    function triggerSimulationFilter() {
+      // Simulation visual response: subtly highlight list items
+      const cards = document.querySelectorAll('#daftar-titik ~ .grid > div');
+      const query = (searchInput ? searchInput.value.toLowerCase() : '');
+      
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (query && !text.includes(query)) {
+          card.style.opacity = '0.35';
+        } else {
+          card.style.opacity = '1';
+        }
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', triggerSimulationFilter);
+    }
+    if (categorySelect) {
+      categorySelect.addEventListener('change', triggerSimulationFilter);
+    }
+    if (statusSelect) {
+      statusSelect.addEventListener('change', triggerSimulationFilter);
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="w-full px-gutter py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px] text-primary">verified_user</span><p class="max-w-4xl font-body-sm text-body-sm">PillsSafe adalah platform pendukung tata kelola data dan pelacakan digital, bukan jaminan otomatis bahwa obat atau efluen aman tanpa verifikasi laboratorium lengkap.</p></div><div class="flex items-center gap-space-md text-right font-label-sm text-label-sm whitespace-nowrap"><span class="text-on-surface-variant">Protokol Validasi Lingkungan © 2024</span><span class="inline-block w-2 h-2 rounded-full bg-primary"></span><span class="font-data-tabular text-data-tabular text-on-surface">ISO/IEC 17025 Ready</span></div></div></footer></body></html>

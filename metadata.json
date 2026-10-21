@@ -1,0 +1,8 @@
+{
+  "name": "PillsSafe - Tata Kelola Obat Kedaluwarsa",
+  "description": "Konsep platform digital tata kelola obat kedaluwarsa dari rumah tangga melalui pelaporan, penelusuran batch, pengumpulan resmi, dan verifikasi keselamatan efluen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

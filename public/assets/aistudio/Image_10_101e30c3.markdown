@@ -1,0 +1,250 @@
+---
+name: Clinical Integrity
+colors:
+  surface: '#faf8ff'
+  surface-dim: '#d2d9f4'
+  surface-bright: '#faf8ff'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f2f3ff'
+  surface-container: '#eaedff'
+  surface-container-high: '#e2e7ff'
+  surface-container-highest: '#dae2fd'
+  on-surface: '#131b2e'
+  on-surface-variant: '#404944'
+  inverse-surface: '#283044'
+  inverse-on-surface: '#eef0ff'
+  outline: '#707974'
+  outline-variant: '#bfc9c3'
+  surface-tint: '#306855'
+  primary: '#003426'
+  on-primary: '#ffffff'
+  primary-container: '#0f4c3a'
+  on-primary-container: '#82bba4'
+  inverse-primary: '#99d3ba'
+  secondary: '#006398'
+  on-secondary: '#ffffff'
+  secondary-container: '#5bb8fe'
+  on-secondary-container: '#00476e'
+  tertiary: '#002575'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#213d8d'
+  on-tertiary-container: '#95acff'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#b4efd6'
+  primary-fixed-dim: '#99d3ba'
+  on-primary-fixed: '#002117'
+  on-primary-fixed-variant: '#15503e'
+  secondary-fixed: '#cce5ff'
+  secondary-fixed-dim: '#93ccff'
+  on-secondary-fixed: '#001d31'
+  on-secondary-fixed-variant: '#004b73'
+  tertiary-fixed: '#dce1ff'
+  tertiary-fixed-dim: '#b6c4ff'
+  on-tertiary-fixed: '#00164e'
+  on-tertiary-fixed-variant: '#264191'
+  background: '#faf8ff'
+  on-background: '#131b2e'
+  surface-variant: '#dae2fd'
+typography:
+  headline-xl:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 32px
+    fontWeight: '700'
+    lineHeight: 40px
+    letterSpacing: -0.02em
+  headline-xl-mobile:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 24px
+    fontWeight: '700'
+    lineHeight: 32px
+    letterSpacing: -0.01em
+  headline-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+    letterSpacing: -0.015em
+  headline-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 20px
+    fontWeight: '600'
+    lineHeight: 28px
+    letterSpacing: -0.01em
+  headline-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 16px
+    fontWeight: '600'
+    lineHeight: 24px
+    letterSpacing: -0.005em
+  body-lg:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: '400'
+    lineHeight: 24px
+  body-md:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: '400'
+    lineHeight: 20px
+  body-sm:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+  label-lg:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: '600'
+    lineHeight: 20px
+    letterSpacing: 0.01em
+  label-md:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: '600'
+    lineHeight: 16px
+    letterSpacing: 0.02em
+  label-sm:
+    fontFamily: Inter
+    fontSize: 11px
+    fontWeight: '600'
+    lineHeight: 14px
+    letterSpacing: 0.03em
+  data-tabular:
+    fontFamily: Inter
+    fontSize: 13px
+    fontWeight: '500'
+    lineHeight: 18px
+    letterSpacing: '0'
+rounded:
+  sm: 0.125rem
+  DEFAULT: 0.25rem
+  md: 0.375rem
+  lg: 0.5rem
+  xl: 0.75rem
+  full: 9999px
+spacing:
+  gutter: 1.5rem
+  gutter-sm: 1rem
+  gutter-lg: 2rem
+  margin: 2rem
+  margin-mobile: 1rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.5rem
+  space-xl: 2.5rem
+---
+
+## Brand & Style
+
+This design system establishes an environment of strict accountability, empirical precision, and environmental stewardship. Designed for pharmaceutical regulatory oversight, eco-pharmacovigilance, and active substance lifecycle tracking, the UI prioritizes instantaneous legibility, cognitive composure, and zero ambiguity under regulatory audits.
+
+The aesthetic philosophy fuses **High-Precision Minimalist Enterprise** with **Clinical Lab Instrumentation**:
+- **Utilitarian Clarity**: Decorative gradients, playful illustrations, and glassmorphic blurs are prohibited. Every surface, border, and pixel exists to structure data or communicate compliance states.
+- **Architectural Rigor**: High-density data grids, monospaced metadata points, and crisp tabular alignments convey institutional authority.
+- **Controlled Density**: Balanced spacing scales allow operators to review high-throughput metrics without visual fatigue, maintaining distinct visual separation between regulatory thresholds, simulation models, and real-time sensor streams.
+
+## Colors
+
+The color system enforces strict semantic meaning. Color is never decorative; it functions strictly as state communication, hierarchy demarcation, or compliance signaling.
+
+### Color Tokens & Semantics
+- **Primary (`#0F4C3A`)**: Clinical Teal/Dark Forest. Embodies ecological responsibility, formal verification, and primary actions (e.g., active report validation, confirmed batch sign-offs).
+- **Secondary (`#0284C7`)**: Precision Cyan-Blue. Reserved for interactive informational targets, link states, active filter criteria, and analytical telemetry.
+- **Tertiary (`#1E3A8A`)**: Slate Navy. Applied to deep metadata containers, regulatory reference bars, and structural navigation accents.
+- **Neutral Canvas & Surfaces**:
+  - Base Canvas: `#F8FAFC` (Slate 50)
+  - Surface Panel: `#FFFFFF`
+  - Subdued Surface / Recessed Input: `#F1F5F9` (Slate 100)
+  - Border Subtle: `#E2E8F0` (Slate 200)
+  - Border Strong / Grid Lines: `#CBD5E1` (Slate 300)
+  - Text Primary: `#0F172A` (Slate 900)
+  - Text Secondary: `#475569` (Slate 600)
+  - Text Muted: `#94A3B8` (Slate 400)
+
+### Compliance & Telemetry Status Colors
+- **Alert / Non-Conforming (`#DC2626`)**: Critical contamination, threshold breaches, audit fails. Accompanied by `#FEF2F2` tinted backgrounds.
+- **Warning / Review Required (`#D97706`)**: Impending drift, unverified simulation states, secondary review pending. Accompanied by `#FFFBEB` backgrounds.
+- **Success / Compliant (`#059669`)**: Cleared toxicological tests, zero-detection safe discharge, valid digital signatures. Accompanied by `#ECFDF5` backgrounds.
+
+## Typography
+
+The type hierarchy pairs the structural, geometric presence of **Plus Jakarta Sans** for section headers and high-level dashboard metrics with the neutral, hyper-readable clarity of **Inter** for dense transactional tables, data fields, and analytical forms.
+
+### Execution Rules
+- Set `font-feature-settings: "cv02", "cv03", "cv04", "cv11"` on `Inter` to force open shapes on numbers and lowercase characters, avoiding misinterpretation of critical values (e.g., mistaking `0` for `O`, or `1` for `l`).
+- All numeric telemetry tables, compliance concentrations, and timestamps must invoke `font-variant-numeric: tabular-nums` to ensure exact column alignment.
+- Labels under 12px must use uppercase formatting with explicit letter-spacing (`0.03em` to `0.05em`) to ensure legibility on low-DPI laboratory monitors.
+
+## Layout & Spacing
+
+The layout is anchored by a structured 12-column fluid grid system designed for high data visibility and uninterrupted monitoring workflows.
+
+### Grid & Breakpoints
+- **Desktop (≥ 1280px)**: 12-column fluid layout, `gutter-lg` (32px), `margin` (32px). Fixed primary vertical control bar (64px collapsed, 240px expanded).
+- **Tablet / Workstation (768px – 1279px)**: 8-column layout, `gutter` (24px), `margin` (24px). Side controls auto-collapse to top-tier icon bars.
+- **Mobile (≤ 767px)**: 4-column layout, `gutter-sm` (16px), `margin-mobile` (16px). All side-by-side comparative inspection tables stack vertically into sequential audit cards.
+
+### Spacing Discipline
+Component margins and internal padding strictly honor the 4px baseline rhythm. Vertical gaps between distinct analytic cards use `space-lg` (24px). Internal card headers, filter panels, and data summaries consistently leverage `space-md` (16px). Tight micro-spacing (`space-xs` / 4px and `space-sm` / 8px) is strictly designated for badge internal padding, icon-text pairings, and inline form metadata.
+
+## Elevation & Depth
+
+This design system avoids theatrical drop shadows, skeuomorphic bevels, and heavy blurred lighting effects. Depth is expressed purely through **Tonal Surface Layering** and **Crisp Low-Contrast Structural Outlines**.
+
+### Elevation Stack
+- **Layer 0 (Canvas Base)**: `#F8FAFC`. Provides a cool, clinical backdrop that minimizes eye strain under prolonged screen use.
+- **Layer 1 (Cards, Data Shelves, Panels)**: `#FFFFFF`. Demarcated not by drop shadows, but by a 1px solid border of `#E2E8F0`. Surfaces feel integrated and flush.
+- **Layer 2 (Contextual Menus, Tooltips, Modals, Overlays)**: `#FFFFFF` encased in a 1px border of `#CBD5E1`, with a razor-thin, cold ambient shadow:
+  - `box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 4px 12px 0 rgba(15, 23, 42, 0.04)`.
+- **Layer 3 (Critical Alert Toasts & Simulation Interrupts)**: `#FFFFFF` with high-contrast indicator borders:
+  - 3px solid primary/accent/alert left boundary with `box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1)`.
+
+### State Interaction
+Hover and active states do not lift elements toward the user. Instead, interactive surfaces shift their background tone (e.g., `#FFFFFF` to `#F8FAFC`) or sharpen their outline color from `#E2E8F0` to `#0F4C3A` or `#0284C7`.
+
+## Shapes
+
+The design system adopts a **Soft (Level 1)** structural rounding architecture. Precision scientific instrumentation requires compact, crisp UI corners rather than hyper-rounded or bubbly geometries.
+
+### Geometry Specifications
+- **Base Components (Inputs, Buttons, Badges, Tabs)**: `0.25rem` (4px). Delivers subtle corner softening while preserving strict tabular geometry and alignment.
+- **Cards, Panels, and Data Grids**: `0.5rem` (8px). Encapsulates complex modules without appearing playful.
+- **Modals, Drawers, and Flyout Shelves**: `0.5rem` (8px). Ensures crisp containment.
+- **Round Elements**: Fully circular radii (`9999px`) are strictly reserved for unread count dots, micro-telemetry status pulses, and circular avatar indicators.
+
+## Components
+
+### Buttons
+- **Primary**: Solid `#0F4C3A` background, white label, 4px border radius. Hover: `#14532D`. Active: `#0A3427`. Focus: 2px offset ring in `#0F4C3A`.
+- **Secondary / Informational**: Background `#F0F9FF`, text `#0284C7`, border 1px solid `#BAE6FD`. Hover: `#E0F2FE`.
+- **Outline / Neutral**: Background transparent, text `#0F172A`, border 1px solid `#CBD5E1`. Hover: `#F8FAFC`.
+- **Destructive**: Background `#DC2626`, text white. Hover: `#B91C1C`.
+- **Sizing**: Compact (32px height, 12px horizontal padding) for dense tables; Standard (40px height, 16px horizontal padding) for general flows.
+
+### Status Indicators & Integrity Badges
+- **Structure**: Badges utilize an explicit dual-signal design: a 6px solid circular status dot alongside a medium-weight label, avoiding color-only status signaling.
+- **Compliant / Verified**: Dot `#059669`, background `#ECFDF5`, text `#065F46`, border 1px solid `#A7F3D0`.
+- **Under Review / Simulation**: Dot `#D97706`, background `#FFFBEB`, text `#92400E`, border 1px solid `#FDE68A`.
+- **Non-Conforming / Critical**: Dot `#DC2626`, background `#FEF2F2`, text `#991B1B`, border 1px solid `#FECACA`.
+
+### Simulation Notice Banner
+- Distinct visual container pinned over analytical modeling interfaces.
+- Striped 4px left-border `#0284C7`, background `#F8FAFC`, border 1px solid `#E2E8F0`. Displays monospaced run ID, predictive confidence score (e.g., `Confidence: 98.4%`), and a prominent non-destructive label: `SIMULATION ENVIRONMENT — DATA NOT CANONICAL`.
+
+### Data Tables & Specimen Lists
+- **Header**: Height 36px, background `#F8FAFC`, border-bottom 1px solid `#CBD5E1`, labels `label-sm` in `#475569`.
+- **Row**: Height 44px (condensed) or 52px (standard), border-bottom 1px solid `#F1F5F9`. Hover row highlights in `#F8FAFC`.
+- **Numeric Cells**: Right-aligned, formatted with `font-variant-numeric: tabular-nums`.
+
+### Form Inputs & Select Fields
+- Height 36px. Border 1px solid `#CBD5E1`, background `#FFFFFF`, text `#0F172A`, border radius 4px.
+- Focus state: Border color changes to `#0F4C3A` with zero outer glow; subtle inner outline via 1px ring.
+- Disabled state: Background `#F1F5F9`, text `#94A3B8`, border 1px solid `#E2E8F0`.
+
+### Cards & Analytical Panels
+- White background (`#FFFFFF`), border 1px solid `#E2E8F0`, corner radius 8px.
+- Header divided by 1px solid `#F1F5F9` rule with title (`headline-sm`) and right-aligned telemetry action/status indicator. Zero ambient drop shadow.

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>PillsSafe - Sistem Simulasi Tata Kelola Farmakovigilans Lingkungan</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-container": "#5bb8fe",
+          "tertiary": "#002575",
+          "surface-container": "#eaedff",
+          "tertiary-fixed-dim": "#b6c4ff",
+          "surface": "#faf8ff",
+          "primary-container": "#0f4c3a",
+          "on-secondary-fixed-variant": "#004b73",
+          "error-container": "#ffdad6",
+          "surface-container-high": "#e2e7ff",
+          "primary-fixed": "#b4efd6",
+          "on-secondary-container": "#00476e",
+          "surface-container-low": "#f2f3ff",
+          "on-secondary": "#ffffff",
+          "inverse-primary": "#99d3ba",
+          "on-surface": "#131b2e",
+          "on-surface-variant": "#404944",
+          "on-background": "#131b2e",
+          "on-primary-fixed": "#002117",
+          "surface-container-highest": "#dae2fd",
+          "on-primary-container": "#82bba4",
+          "surface-tint": "#306855",
+          "on-tertiary-fixed": "#00164e",
+          "outline-variant": "#bfc9c3",
+          "on-tertiary-container": "#95acff",
+          "surface-variant": "#dae2fd",
+          "background": "#faf8ff",
+          "inverse-on-surface": "#eef0ff",
+          "primary": "#003426",
+          "error": "#ba1a1a",
+          "on-error-container": "#93000a",
+          "outline": "#707974",
+          "on-primary": "#ffffff",
+          "surface-bright": "#faf8ff",
+          "secondary": "#006398",
+          "on-primary-fixed-variant": "#15503e",
+          "secondary-fixed": "#cce5ff",
+          "secondary-fixed-dim": "#93ccff",
+          "on-tertiary-fixed-variant": "#264191",
+          "tertiary-fixed": "#dce1ff",
+          "tertiary-container": "#213d8d",
+          "surface-container-lowest": "#ffffff",
+          "surface-dim": "#d2d9f4",
+          "on-error": "#ffffff",
+          "on-secondary-fixed": "#001d31",
+          "primary-fixed-dim": "#99d3ba",
+          "inverse-surface": "#283044",
+          "on-tertiary": "#ffffff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "space-md": "1rem",
+          "space-xl": "2.5rem",
+          "gutter": "1.5rem",
+          "space-lg": "1.5rem",
+          "margin-mobile": "1rem",
+          "gutter-lg": "2rem",
+          "gutter-sm": "1rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem"
+        },
+        "fontFamily": {
+          "data-tabular": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "label-md": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-sm": [
+            "Inter"
+          ],
+          "label-lg": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-xl-mobile": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Inter"
+          ]
+        },
+        "fontSize": {
+          "data-tabular": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-sm": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-lg": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      }
+    }
+  };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low px-gutter py-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-secondary">info</span><span class="tracking-wide">DATA SIMULASI — UNTUK DEMONSTRASI PROTOTIPE GAGASAN | JALUR BIODEGRADASI &amp; PENGUJIAN MEMERLUKAN VALIDASI TEKNIS</span></div><div class="hidden md:flex items-center gap-space-sm"><span class="inline-flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-data-tabular text-data-tabular"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Sistem Simulasi Aktif</span><span class="text-outline-variant">|</span><span class="font-label-sm text-label-sm text-on-surface-variant">v1.2.0-SIM</span></div></div><div class="h-20 w-full px-gutter flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="PillsSafe Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBV2WTScjksFA1SGnanv857FJrtMyDCdhqq43wY8TtsLKGnHUPKsbJYhIrDGfA5ufvFCr6DzT-wKzJGAxU_Sea3DMvBaGEZpqTkA8CIHJ13eyPAgJaCrDaqYCCmMBSwotosufUyWwnDJcHEus4LqkjQFStC_LdLICt5xRwysvwaQgVkCQZ9ofUfI_jrUStTvl5hCaCk5ynE1aqNwJWUbmsFoKjnAr6-dQJwrBFJlS8aSBEBB_pE3E"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-none tracking-tight">PillsSafe</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight tracking-wider uppercase">Eco-Pharmacovigilance</span></div></div><nav class="hidden xl:flex items-center gap-space-xs pl-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded"><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="beranda" href="#">Beranda</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="laporkan-obat" href="#">Laporkan Obat</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-primary-container text-on-primary-container font-label-md rounded" data-path="lacak-laporan" href="#">Lacak Laporan</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="titik-pengumpulan" href="#">Titik Pengumpulan</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="jalur-pengolahan" href="#">Jalur Pengolahan</a><a class="px-space-sm py-1.5 text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-low hover:text-on-surface" data-path="informasi-bantuan" href="#">Informasi &amp; Bantuan</a></nav></div><div class="flex items-center gap-space-md"><div class="relative flex items-center bg-surface-container-low rounded p-space-xs gap-space-xs"><span class="material-symbols-outlined text-[18px] text-on-surface-variant pl-1">badge</span><label class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap" for="role-switcher">Peran:</label><select class="bg-surface-container-lowest font-label-md text-label-md text-on-surface rounded px-space-xs py-1 focus:outline-none" id="role-switcher"><option selected="">Pelapor Publik</option><option>Operator Fasilitas</option><option>Pengelola Teknis</option></select><span class="hidden lg:inline-flex items-center px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Simulasi</span></div><div class="flex items-center gap-space-xs pl-space-xs"><button aria-label="Notifikasi" class="w-9 h-9 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Simulation Pinned Notice Strip -->
+<div class="w-full bg-surface-container-low px-gutter py-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm uppercase tracking-wider">Audit Trace</span>
+<span class="font-data-tabular text-data-tabular text-on-surface">SYS-ENV-TRACE // RUN-ID: <span class="text-secondary font-semibold">SIM-2024-TRK-0941</span></span>
+<span class="text-outline-variant hidden sm:inline">|</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        Status Integritas: <strong class="text-on-surface">Protokol Verifikasi Triple-Check Aktif</strong>
+</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">science</span>
+<span>DATA SIMULASI — UNTUK DEMONSTRASI PROTOTIPE GAGASAN</span>
+</div>
+</div>
+<div class="w-full max-w-7xl mx-auto px-gutter-sm md:px-gutter py-space-lg flex flex-col gap-space-xl">
+<!-- Hero / Header & Precision Search Terminal -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md md:p-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">track_changes</span>
+<span class="tracking-wider uppercase">Sistem Rantai Pengawasan Efluen Farmasi</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:font-headline-xl md:text-headline-xl text-on-surface tracking-tight">
+            Lacak Status Batch Obat Kedaluwarsa
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Pantau status penerimaan, skrining kelayakan, alokasi bioreaktor biodegradasi, hingga keputusan verifikasi efluen laboratorium secara transparan dan berurutan.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs self-start md:self-auto bg-surface-container-low px-space-sm py-1.5 rounded text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>Ledger Imutabel: 8 Titik Audit</span>
+</div>
+</div>
+<!-- Search Bar Console -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex flex-col md:flex-row items-stretch gap-space-xs bg-surface-container-low p-1.5 rounded-lg">
+<div class="flex-1 flex items-center px-space-sm bg-surface-container-lowest rounded gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">qr_code_scanner</span>
+<input class="w-full h-10 bg-transparent font-data-tabular text-data-tabular text-on-surface placeholder:text-outline focus:outline-none" id="batch-search-input" placeholder="Masukkan Kode Batch Laporan (Contoh: BATCH-SIM-0941, BATCH-SIM-0942, BATCH-SIM-0943)" type="text" value="BATCH-SIM-0941"/>
+</div>
+<button class="h-10 px-space-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded flex items-center justify-center gap-space-xs transition-colors" id="btn-lacak-batch" type="button">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<span>Lacak Batch</span>
+</button>
+</div>
+<!-- Quick Select Chips -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-xs pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Pilih Cepat Simulasi:</span>
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-primary-fixed text-on-primary-fixed font-data-tabular text-label-sm flex items-center gap-1.5 transition-all hover:shadow-sm" id="chip-0941" onclick="selectBatch('BATCH-SIM-0941')" type="button">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>BATCH-SIM-0941 (Parasetamol — Memenuhi Kriteria Verifikasi)</span>
+</button>
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface-variant font-data-tabular text-label-sm flex items-center gap-1.5 hover:bg-surface-container-high transition-all" id="chip-0942" onclick="selectBatch('BATCH-SIM-0942')" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>BATCH-SIM-0942 (Diklofenak NSAID — Dalam Pengolahan)</span>
+</button>
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface-variant font-data-tabular text-label-sm flex items-center gap-1.5 hover:bg-surface-container-high transition-all" id="chip-0943" onclick="selectBatch('BATCH-SIM-0943')" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>BATCH-SIM-0943 (Kandidat Campuran — Data Belum Cukup)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Batch Dossier & Summary Layout (Bento Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Primary Batch Information Card (8 Columns) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Batch Specimen Master Panel -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md md:p-space-lg flex flex-col gap-space-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Top Row: Batch Code & Dual-Signal Badge -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[28px] text-primary">inventory_2</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Identifikasi Arsip Batch</span>
+<span class="font-headline-md text-headline-md font-data-tabular text-on-surface font-bold" id="batch-id-title">BATCH-SIM-0941</span>
+</div>
+</div>
+<div class="inline-flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md" id="batch-badge-container">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" id="batch-badge-dot"></span>
+<span class="tracking-wide" id="batch-badge-text">MEMENUHI KRITERIA PELEPASAN</span>
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<!-- Active Substance & Origin Highlight -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Bahan Aktif Terkandung</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold" id="batch-substance">Parasetamol (Acetaminophen)</span>
+<span class="font-data-tabular text-data-tabular text-secondary">CAS Registry: 103-90-2 | Formulasi Analgesik-Antipiretik</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Asal Pelaporan &amp; Sumber</span>
+<span class="font-headline-sm text-headline-sm text-on-surface" id="batch-source">Rumah Tangga Mandiri</span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">Nomor Registrasi Publik: #PS-8821</span>
+</div>
+</div>
+<!-- Compact Metadata Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-xs">
+<div class="flex flex-col p-space-sm bg-surface rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">fmd_good</span> Titik Kumpul
+              </span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate mt-0.5" id="meta-location">Bio-Drop Sukamaju</span>
+<span class="font-data-tabular text-label-sm text-on-surface-variant truncate">Puskesmas Zona B-4</span>
+</div>
+<div class="flex flex-col p-space-sm bg-surface rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">medication</span> Sediaan Farmasi
+              </span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate mt-0.5" id="meta-dosage">Tablet 500mg</span>
+<span class="font-data-tabular text-label-sm text-on-surface-variant truncate">18 Butir dlm Blister</span>
+</div>
+<div class="flex flex-col p-space-sm bg-surface rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">route</span> Alur Reaktor
+              </span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate mt-0.5" id="meta-pathway">Jalur Kandidat A</span>
+<span class="font-data-tabular text-label-sm text-on-surface-variant truncate">Bakteri A-1 (Inokulan 3L)</span>
+</div>
+<div class="flex flex-col p-space-sm bg-surface rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">schedule</span> Waktu Lapor
+              </span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate mt-0.5" id="meta-timestamp">12 Okt 2024</span>
+<span class="font-data-tabular text-label-sm text-on-surface-variant truncate">09:30 WIB (Presisi)</span>
+</div>
+</div>
+</div>
+<!-- 8-Step Interactive Life-Cycle Audit Timeline -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md md:p-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">account_tree</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+                Kronologi 8 Tahap Ekosistem Farmakovigilans
+              </h2>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span id="timeline-progress-label">8 dari 8 Tahap Tuntas</span>
+</div>
+</div>
+<!-- Timeline Steps Container -->
+<div class="relative flex flex-col gap-space-md" id="timeline-container">
+<!-- Continuous Vertical Indicator Rail -->
+<div class="absolute left-4 sm:left-5 top-4 bottom-4 w-0.5 bg-surface-container-high -translate-x-1/2 z-0"></div>
+<!-- Tahap 1 -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">post_add</span>
+</div>
+<div class="flex-1 bg-surface-container-low hover:bg-surface-container p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-tabular">TAHAP 01</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Laporan Dibuat &amp; Terdaftar</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>12 Okt 2024, 09:30 WIB</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">person</span>
+<span>Aktor Penanggung Jawab: Pelapor Publik (Mandiri)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Laporan batch teregistrasi mandiri melalui antarmuka publik PillsSafe. Kode unik identitas spesimen digital diterbitkan bersama instruksi pengemasan awal.
+                </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Terverifikasi Sistem
+                  </span>
+</div>
+</div>
+</div>
+<!-- Tahap 2 -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">inventory</span>
+</div>
+<div class="flex-1 bg-surface-container-low hover:bg-surface-container p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-tabular">TAHAP 02</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pengumpulan &amp; Serah Terima Fisik</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>13 Okt 2024, 14:15 WIB</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+<span>Aktor Penanggung Jawab: Petugas Bio-Drop (Puskesmas Sukamaju)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Diterima utuh dalam bio-secure box resmi. Segel wadah diamankan, QR-label serah terima dipindai dengan kondisi blister tidak rusak dan tidak terkontaminasi bahan lain.
+                </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Serah Terima Sah
+                  </span>
+<span class="font-data-tabular text-label-sm text-on-surface-variant">Log ID: BD-SKM-884</span>
+</div>
+</div>
+</div>
+<!-- Tahap 3 -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">checklist</span>
+</div>
+<div class="flex-1 bg-surface-container-low hover:bg-surface-container p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-tabular">TAHAP 03</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Skrining Awal &amp; Kelayakan Data</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>14 Okt 2024, 10:00 WIB</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">engineering</span>
+<span>Aktor Penanggung Jawab: Operator Fasilitas Penerimaan</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Inspeksi kemasan blister utuh, verifikasi tanggal kedaluwarsa produsen (Exp: Sep 2024), kesesuaian takaran 500mg, dan kelengkapan data administratif spesimen. Lolos skrining primer.
+                </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Lolos Skrining Kelayakan
+                  </span>
+</div>
+</div>
+</div>
+<!-- Tahap 4 -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+</div>
+<div class="flex-1 bg-surface-container-low hover:bg-surface-container p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-tabular">TAHAP 04</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Diterima untuk Jalur Pengolahan</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>15 Okt 2024, 08:30 WIB</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Aktor Penanggung Jawab: Koordinator Teknis Reaktor</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Spesimen batch dialokasikan ke Bioreaktor Jalur A (Kandidat Pengurai Spesifik Parasetamol). Formula inokulan disiapkan sesuai rasio biomassa terhadap beban zat aktif.
+                </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="font-data-tabular text-label-sm text-on-surface-variant">Unit Alokasi: BIO-UNIT-ALPHA // Chamber 02</span>
+</div>
+</div>
+</div>
+<!-- Tahap 5 -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+</div>
+<div class="flex-1 bg-surface-container-low hover:bg-surface-container p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-tabular">TAHAP 05</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Dalam Pengolahan Biodegradasi</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">timelapse</span>
+<span>15–18 Okt 2024 (72 Jam Siklus)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+<span>Aktor Penanggung Jawab: Tim Pemantau Reaktor &amp; Sensor Telemetri</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Proses biodegradasi mikrobiologis berjalan selama 72 jam terhitung. Parameter kontinu terpantau stabil: DO &gt; 4.2 mg/L, pH 7.1 ± 0.2, suhu reaktor 28.4°C.
+                </p>
+<!-- Telemetry Sparkline Component -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-1 mt-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Telemetri Stabilitas Siklus 72 Jam</span>
+<span class="font-data-tabular text-primary">Stabilitas Reaktor 99.4%</span>
+</div>
+<svg class="w-full h-8 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 300 32">
+<path d="M0,20 Q25,12 50,18 T100,16 T150,14 T200,17 T250,13 T300,15" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path d="M0,20 Q25,12 50,18 T100,16 T150,14 T200,17 T250,13 T300,15 L300,32 L0,32 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Tahap 6 -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">colorize</span>
+</div>
+<div class="flex-1 bg-surface-container-low hover:bg-surface-container p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-tabular">TAHAP 06</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pengambilan Sampel Efluen Pasca-Olahan</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>18 Okt 2024, 16:00 WIB</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">assignment_ind</span>
+<span>Aktor Penanggung Jawab: Petugas Sampling Terakreditasi ISO 17025</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Sampel cairan efluen diambil secara aseptis pada outlet reaktor. Sampel ID: <strong class="text-on-surface font-data-tabular">SMP-EF-0941</strong> dialirkan ke wadah kaca amber gelap dengan rantai dingin (cold chain 4°C) menuju laboratorium validasi.
+                </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="font-data-tabular text-label-sm text-on-surface-variant">Suhu Pengiriman Cold-Chain: 3.8°C (Terekam Logger)</span>
+</div>
+</div>
+</div>
+<!-- Tahap 7 -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">science</span>
+</div>
+<div class="flex-1 bg-surface-container-low hover:bg-surface-container p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-tabular">TAHAP 07</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pengujian &amp; Verifikasi Tri-Parameter Efluen</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>19–20 Okt 2024</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">biotech</span>
+<span>Aktor Penanggung Jawab: Analis Laboratorium Validasi Lingkungan</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Pengujian analitis komparatif terhadap 3 kriteria wajib:
+                </p>
+<!-- Matrix of 3 Critical Parameters -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs pt-1">
+<div class="p-space-xs bg-surface-container-lowest rounded flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">1. Senyawa Induk</span>
+<span class="font-data-tabular text-data-tabular text-primary font-bold">HPLC &lt; LOQ (0.01 mg/L)</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Selesai Terurai
+                    </span>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">2. Transformasi (TPs)</span>
+<span class="font-data-tabular text-data-tabular text-primary font-bold">4-AP: Non-Terdeteksi</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Tanpa Residu Toksik
+                    </span>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">3. Bioassay Toksisitas</span>
+<span class="font-data-tabular text-data-tabular text-primary font-bold">Daphnia Magna 48h</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Mortalitas 0%
+                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tahap 8 (Final Decision) -->
+<div class="relative z-10 flex items-start gap-space-md group">
+<div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm ring-4 ring-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+<div class="flex-1 bg-surface-container hover:bg-surface-container-high p-space-md rounded-lg transition-colors flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary text-on-primary font-data-tabular">TAHAP 08 — FINAL</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Keputusan Akhir Berbasis Data Lengkap</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>21 Okt 2024, 11:00 WIB</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>Aktor Penanggung Jawab: Penanggung Jawab Teknis Farmakovigilans Lingkungan</span>
+</div>
+<div class="p-space-sm bg-primary-fixed rounded flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-primary-fixed font-headline-sm text-headline-sm font-bold">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+<span>KEPUTUSAN: MEMENUHI KRITERIA PELEPASAN EFLLUEN</span>
+</div>
+<span class="font-data-tabular text-data-tabular text-on-primary-fixed hidden sm:inline">SK-VAL-2024-0941</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Berdasarkan lembar hasil uji laboratorium terakreditasi, seluruh kriteria verifikasi terpenuhi sempurna: senyawa asal tereliminasi, tanpa akumulasi intermediat berbahaya, dan lulus uji hayati non-toksik perairan.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Verification Dossier & Transparency Panel (4 Columns) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Lab Certification Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Dokumentasi Laboratorium</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Terarsip
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Sertifikat Analisis Efluen</span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">Doc Ref: CoA-SIM-EF-0941-REV0</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm font-body-sm text-body-sm">
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-on-surface-variant">Metode Validasi</span>
+<span class="font-data-tabular font-medium">LC-MS/MS &amp; HPLC-UV</span>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-on-surface-variant">Batas Deteksi (LOD)</span>
+<span class="font-data-tabular font-medium">0.003 mg/L</span>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-on-surface-variant">Batas Kuantifikasi (LOQ)</span>
+<span class="font-data-tabular font-medium">0.010 mg/L</span>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-on-surface-variant">Uji Toksisitas 48 Jam</span>
+<span class="font-data-tabular text-primary font-bold">Mortalitas 0% (Aman)</span>
+</div>
+</div>
+<!-- Download Action Button -->
+<button class="w-full h-11 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded flex items-center justify-center gap-space-xs transition-colors" onclick="simulateDownloadPDF()" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>Unduh Ringkasan Pelacakan (PDF Simulasi)</span>
+</button>
+<span class="hidden text-center font-label-sm text-label-sm text-primary" id="download-toast">Dokumen simulasi pelacakan berhasil diunduh.</span>
+</div>
+<!-- Strict Regulatory Rigor & Integrity Warning Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+<span class="font-headline-sm text-headline-sm font-bold">Integritas Keputusan Rilis</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Keputusan akhir pelepasan efluen <strong class="text-on-surface">didasarkan secara mutlak</strong> pada kelengkapan dokumen pengujian 3 parameter wajib:
+            </p>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant pt-1">
+<li class="flex items-start gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<span><strong>Senyawa Induk:</strong> Penurunan di bawah batas kuantisasi (HPLC &lt; LOQ).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<span><strong>Produk Transformasi (TPs):</strong> Tidak menyisakan senyawa intermediat reaktif seperti 4-Aminophenol.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
+<span><strong>Bioassay Toksisitas:</strong> Uji mortalitas mikrofauna air baku nihil (0% pada eksposur 48 jam).</span>
+</li>
+</ul>
+<div class="bg-surface-container p-space-xs rounded font-label-sm text-label-sm text-on-surface-variant mt-2 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">priority_high</span>
+<span>Penurunan senyawa induk semata TIDAK DIANGGAP AMAN tanpa pengujian transformasi.</span>
+</div>
+</div>
+<!-- Facility Custody Badge Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Rantai Pengawasan Fisik (Chain of Custody)</span>
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Bio-Cluster Sukamaju</span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">Hub Pengolahan &amp; Reaktor Terpadu 04</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 font-data-tabular text-label-sm text-on-surface-variant pt-space-xs">
+<div class="flex justify-between">
+<span>Status Segel:</span>
+<span class="text-on-surface font-semibold">Tervalidasi Digital (#SG-4409)</span>
+</div>
+<div class="flex justify-between">
+<span>Sensor Temperatur Batch:</span>
+<span class="text-on-surface">20.2°C (Kondisi Stabil)</span>
+</div>
+<div class="flex justify-between">
+<span>Hash Validasi Ledger:</span>
+<span class="font-mono text-secondary">0x8a9f...c42e</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Contextual Guidance Section -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md md:p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[28px]">help_outline</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Perlu Informasi Lebih Lanjut Terkait Hasil Verifikasi?</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Pelajari ambang batas baku mutu efluen farmakovigilans dan metodologi biodegradasi spesifik di Pusat Bantuan Teknis.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs whitespace-nowrap">
+<a class="px-space-md py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded flex items-center gap-1.5 transition-colors" href="#">
+<span>Kamus Ambang Batas</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic batch simulation database
+  const batchDatabase = {
+    'BATCH-SIM-0941': {
+      code: 'BATCH-SIM-0941',
+      substance: 'Parasetamol (Acetaminophen)',
+      substanceMeta: 'CAS Registry: 103-90-2 | Formulasi Analgesik-Antipiretik',
+      source: 'Rumah Tangga Mandiri',
+      sourceMeta: 'Nomor Registrasi Publik: #PS-8821',
+      location: 'Bio-Drop Sukamaju',
+      locationDetail: 'Puskesmas Zona B-4',
+      dosage: 'Tablet 500mg',
+      dosageDetail: '18 Butir dlm Blister',
+      pathway: 'Jalur Kandidat A',
+      pathwayDetail: 'Bakteri A-1 (Inokulan 3L)',
+      timestamp: '12 Okt 2024',
+      timeDetail: '09:30 WIB (Presisi)',
+      badgeClass: 'bg-primary-fixed text-on-primary-fixed',
+      badgeDot: 'bg-primary animate-pulse',
+      statusText: 'MEMENUHI KRITERIA PELEPASAN',
+      progressLabel: '8 dari 8 Tahap Tuntas',
+      stepsDone: 8
+    },
+    'BATCH-SIM-0942': {
+      code: 'BATCH-SIM-0942',
+      substance: 'Diklofenak Natrium (NSAID)',
+      substanceMeta: 'CAS Registry: 15307-79-6 | Anti-inflamasi Non-Steroid',
+      source: 'Klinik Pratama Sehat (Faskes)',
+      sourceMeta: 'Nomor Registrasi Faskes: #FK-3102',
+      location: 'Bio-Drop Sentral Cikini',
+      locationDetail: 'Klinik Sentral Zona A-1',
+      dosage: 'Tablet Enterik 50mg',
+      dosageDetail: '30 Tablet dlm Strip',
+      pathway: 'Jalur Kandidat C',
+      pathwayDetail: 'Jamur Pelapuk Putih Phanerochaete',
+      timestamp: '17 Okt 2024',
+      timeDetail: '11:15 WIB',
+      badgeClass: 'bg-secondary-fixed text-on-secondary-fixed',
+      badgeDot: 'bg-secondary animate-ping',
+      statusText: 'DALAM PENGOLAHAN BIODEGRADASI',
+      progressLabel: '5 dari 8 Tahap Sedang Berjalan',
+      stepsDone: 5
+    },
+    'BATCH-SIM-0943': {
+      code: 'BATCH-SIM-0943',
+      substance: 'Kandidat Campuran Multi-Komponen',
+      substanceMeta: 'Sediaan Kombinasi Batuk-Pilek (Efedrin + Parasetamol)',
+      source: 'Apotek Mandiri Sukses',
+      sourceMeta: 'Nomor Registrasi Apotek: #AP-5590',
+      location: 'Depo Limbah Farmasi Selatan',
+      locationDetail: 'Gudang Transisi Z-2',
+      dosage: 'Sirup 60ml & Kapsul',
+      dosageDetail: '4 Botol + 20 Kapsul',
+      pathway: 'Menunggu Evaluasi Jalur',
+      pathwayDetail: 'Perlu Pengujian Interaksi Matriks',
+      timestamp: '19 Okt 2024',
+      timeDetail: '16:45 WIB',
+      badgeClass: 'bg-surface-container-high text-on-surface-variant',
+      badgeDot: 'bg-outline',
+      statusText: 'DATA BELUM CUKUP (BUTUH UJI LANJUT)',
+      progressLabel: '3 dari 8 Tahap Selesai — Ditangguhkan',
+      stepsDone: 3
+    }
+  };
+
+  function selectBatch(batchId) {
+    const input = document.getElementById('batch-search-input');
+    if (input) input.value = batchId;
+
+    const data = batchDatabase[batchId];
+    if (!data) return;
+
+    // Update Chips styling
+    ['0941', '0942', '0943'].forEach(id => {
+      const chip = document.getElementById('chip-' + id);
+      if (chip) {
+        if ('BATCH-SIM-' + id === batchId) {
+          chip.className = 'px-space-sm py-1 rounded bg-primary-fixed text-on-primary-fixed font-data-tabular text-label-sm flex items-center gap-1.5 transition-all shadow-sm';
+        } else {
+          chip.className = 'px-space-sm py-1 rounded bg-surface-container text-on-surface-variant font-data-tabular text-label-sm flex items-center gap-1.5 hover:bg-surface-container-high transition-all';
+        }
+      }
+    });
+
+    // Update Header
+    document.getElementById('batch-id-title').textContent = data.code;
+    document.getElementById('batch-substance').textContent = data.substance;
+    document.getElementById('batch-source').textContent = data.source;
+    document.getElementById('meta-location').textContent = data.location;
+    document.getElementById('meta-dosage').textContent = data.dosage;
+    document.getElementById('meta-pathway').textContent = data.pathway;
+    document.getElementById('meta-timestamp').textContent = data.timestamp;
+
+    // Update Badges
+    const badgeContainer = document.getElementById('batch-badge-container');
+    const badgeDot = document.getElementById('batch-badge-dot');
+    const badgeText = document.getElementById('batch-badge-text');
+    badgeContainer.className = 'inline-flex items-center gap-2 px-space-sm py-1.5 rounded-full font-label-md text-label-md ' + data.badgeClass;
+    badgeDot.className = 'w-2.5 h-2.5 rounded-full ' + data.badgeDot;
+    badgeText.textContent = data.statusText;
+
+    document.getElementById('timeline-progress-label').textContent = data.progressLabel;
+  }
+
+  const trackBtn = document.getElementById('btn-lacak-batch');
+  if (trackBtn) {
+    trackBtn.addEventListener('click', function() {
+      const val = document.getElementById('batch-search-input').value.trim();
+      if (batchDatabase[val]) {
+        selectBatch(val);
+      } else {
+        alert('Data simulasi batch tidak ditemukan. Silakan pilih salah satu contoh chip (BATCH-SIM-0941, BATCH-SIM-0942, atau BATCH-SIM-0943).');
+      }
+    });
+  }
+
+  function simulateDownloadPDF() {
+    const toast = document.getElementById('download-toast');
+    if (toast) {
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="w-full px-gutter py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px] text-primary">verified_user</span><p class="max-w-4xl font-body-sm text-body-sm">PillsSafe adalah platform pendukung tata kelola data dan pelacakan digital, bukan jaminan otomatis bahwa obat atau efluen aman tanpa verifikasi laboratorium lengkap.</p></div><div class="flex items-center gap-space-md text-right font-label-sm text-label-sm whitespace-nowrap"><span class="text-on-surface-variant">Protokol Validasi Lingkungan © 2024</span><span class="inline-block w-2 h-2 rounded-full bg-primary"></span><span class="font-data-tabular text-data-tabular text-on-surface">ISO/IEC 17025 Ready</span></div></div></footer></body></html>
