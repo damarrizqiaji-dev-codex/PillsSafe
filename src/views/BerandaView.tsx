@@ -304,7 +304,7 @@ export const BerandaView: React.FC<BerandaViewProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Role 1: Pelapor Publik */}
+            {/* Role 1: Penyerah */}
             <div className="bg-[#f8fafc] rounded-xl p-5 border border-[#e2e8f0] flex flex-col justify-between hover:bg-[#f1f5f9] transition-all shadow-xs">
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
@@ -316,11 +316,11 @@ export const BerandaView: React.FC<BerandaViewProps> = ({
                   </span>
                 </div>
                 <div>
-                  <h4 className="font-headline text-[17px] font-bold text-[#131b2e]">1. Pelapor Publik</h4>
+                  <h4 className="font-headline text-[17px] font-bold text-[#131b2e]">1. Penyerah</h4>
                   <p className="font-body text-[12px] text-[#64748b] mt-0.5">Penyerahan Mandiri Rumah Tangga</p>
                 </div>
                 <p className="font-body text-[13px] text-[#404944] leading-relaxed">
-                  Melaporkan obat kedaluwarsa secara mandiri, mencatat bentuk sediaan, kondisi kemasan, memilih lokasi Bio-Drop resmi, dan memantau tiket batch pelacakan.
+                  Menyerahkan obat kedaluwarsa secara mandiri, mencatat bentuk sediaan, kondisi kemasan, memilih lokasi Bio-Drop resmi, dan memantau tiket batch pelacakan.
                 </p>
                 <div className="p-2.5 rounded-lg bg-white border border-[#e2e8f0] text-[11px] text-[#475569] flex flex-col gap-1">
                   <span>&bull; Formulir intake dengan panduan penyerahan sekunder</span>
@@ -332,18 +332,18 @@ export const BerandaView: React.FC<BerandaViewProps> = ({
                 <button
                   type="button"
                   onClick={() => {
-                    onChangeRole('Pelapor Publik');
+                    onChangeRole('Penyerah');
                     onNavigate('laporkan-obat');
                   }}
                   className="w-full py-2.5 rounded bg-[#003426] text-white font-body text-[13px] font-semibold hover:bg-[#0f4c3a] transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[16px]">edit_document</span>
-                  <span>Mulai Laporkan Obat</span>
+                  <span>Mulai Serahkan Obat</span>
                 </button>
               </div>
             </div>
 
-            {/* Role 2: Operator Fasilitas */}
+            {/* Role 2: Petugas */}
             <div className="bg-[#f8fafc] rounded-xl p-5 border-2 border-[#003426] flex flex-col justify-between hover:bg-[#f1f5f9] transition-all shadow-xs">
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
@@ -355,8 +355,8 @@ export const BerandaView: React.FC<BerandaViewProps> = ({
                   </span>
                 </div>
                 <div>
-                  <h4 className="font-headline text-[17px] font-bold text-[#131b2e]">2. Operator Fasilitas</h4>
-                  <p className="font-body text-[12px] text-[#006398] font-semibold mt-0.5">Laman Khusus: Konsol Operator</p>
+                  <h4 className="font-headline text-[17px] font-bold text-[#131b2e]">2. Petugas</h4>
+                  <p className="font-body text-[12px] text-[#006398] font-semibold mt-0.5">Laman Khusus: Konsol Petugas Fasilitas</p>
                 </div>
                 <p className="font-body text-[13px] text-[#404944] leading-relaxed">
                   Mengelola pemeriksaan fisik di loket, pemilahan sediaan, alokasi Reaktor Riset A vs B terpisah, pemantauan tangki pascaproses, dan registrasi sampel efluen aseptis.
@@ -371,18 +371,18 @@ export const BerandaView: React.FC<BerandaViewProps> = ({
                 <button
                   type="button"
                   onClick={() => {
-                    onChangeRole('Operator Fasilitas');
+                    onChangeRole('Petugas');
                     onNavigate('operator-fasilitas');
                   }}
                   className="w-full py-2.5 rounded bg-[#006398] text-white font-body text-[13px] font-semibold hover:bg-[#004e78] transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[16px]">tune</span>
-                  <span>Buka Konsol Operator</span>
+                  <span>Buka Konsol Petugas</span>
                 </button>
               </div>
             </div>
 
-            {/* Role 3: Verifikator Laboratorium */}
+            {/* Role 3: Peneliti */}
             <div className="bg-[#f8fafc] rounded-xl p-5 border-2 border-[#002575] flex flex-col justify-between hover:bg-[#f1f5f9] transition-all shadow-xs">
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
@@ -394,8 +394,8 @@ export const BerandaView: React.FC<BerandaViewProps> = ({
                   </span>
                 </div>
                 <div>
-                  <h4 className="font-headline text-[17px] font-bold text-[#131b2e]">3. Verifikator Lab</h4>
-                  <p className="font-body text-[12px] text-[#002575] font-semibold mt-0.5">Laman Khusus: Portal Lab</p>
+                  <h4 className="font-headline text-[17px] font-bold text-[#131b2e]">3. Peneliti</h4>
+                  <p className="font-body text-[12px] text-[#002575] font-semibold mt-0.5">Laman Khusus: Portal Peneliti Lab</p>
                 </div>
                 <p className="font-body text-[13px] text-[#404944] leading-relaxed">
                   Memeriksa sampel efluen, menginput hasil uji kromatografi HPLC, spektrometri massa LC-MS/MS, dan bioassay toksisitas, serta menerbitkan Keputusan Verifikasi Resmi.
@@ -410,13 +410,13 @@ export const BerandaView: React.FC<BerandaViewProps> = ({
                 <button
                   type="button"
                   onClick={() => {
-                    onChangeRole('Verifikator Laboratorium');
+                    onChangeRole('Peneliti');
                     onNavigate('verifikator-lab');
                   }}
                   className="w-full py-2.5 rounded bg-[#002575] text-white font-body text-[13px] font-semibold hover:bg-[#131b2e] transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[16px]">verified</span>
-                  <span>Buka Portal Lab</span>
+                  <span>Buka Portal Peneliti</span>
                 </button>
               </div>
             </div>

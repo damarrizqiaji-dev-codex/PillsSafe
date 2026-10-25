@@ -51,13 +51,13 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
   // Handle role switch
   const handleSwitchRole = (newRole: UserRole) => {
     onChangeRole(newRole);
-    if (newRole === 'Pelapor Publik') {
+    if (newRole === 'Penyerah') {
       if (currentView === 'operator-fasilitas' || currentView === 'verifikator-lab') {
         onNavigate('laporkan-obat');
       }
-    } else if (newRole === 'Operator Fasilitas') {
+    } else if (newRole === 'Petugas') {
       onNavigate('operator-fasilitas');
-    } else if (newRole === 'Verifikator Laboratorium') {
+    } else if (newRole === 'Peneliti') {
       onNavigate('verifikator-lab');
     }
     onCloseMobile();
@@ -65,9 +65,9 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
 
   // Role Configuration
   const roleMeta = {
-    'Pelapor Publik': {
-      title: 'Pelapor Publik',
-      badge: 'Warga / Penyerah',
+    'Penyerah': {
+      title: 'Penyerah',
+      badge: 'Warga / Publik',
       themeBg: 'bg-[#ecfdf5]',
       themeBorder: 'border-[#b4efd6]',
       themeText: 'text-[#003426]',
@@ -75,11 +75,11 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
       themeActiveSub: 'bg-[#b4efd6] text-[#002117]',
       accentColor: '#003426',
       icon: 'person',
-      scopeDesc: 'Akses khusus pelaporan mandiri sediaan obat, pelacakan tiket penyerahan, dan informasi titik kumpul resmi.',
+      scopeDesc: 'Akses khusus penyerahan mandiri sediaan obat kedaluwarsa, pelacakan tiket batch, dan informasi titik kumpul resmi.',
     },
-    'Operator Fasilitas': {
-      title: 'Operator Fasilitas',
-      badge: 'Operasional Fisik',
+    'Petugas': {
+      title: 'Petugas',
+      badge: 'Fasilitas & Reaktor',
       themeBg: 'bg-[#ecfdf5]',
       themeBorder: 'border-[#003426]/30',
       themeText: 'text-[#003426]',
@@ -87,11 +87,11 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
       themeActiveSub: 'bg-[#b4efd6] text-[#002117]',
       accentColor: '#003426',
       icon: 'engineering',
-      scopeDesc: 'Akses khusus inspeksi fisik loket, alokasi Reaktor Riset A vs B terpisah, holding tank, dan registrasi sampel.',
+      scopeDesc: 'Akses khusus inspeksi fisik loket, pemilahan sediaan, alokasi Reaktor Riset A vs B terpisah, holding tank, dan registrasi sampel.',
     },
-    'Verifikator Laboratorium': {
-      title: 'Verifikator Lab',
-      badge: 'Analis & Sertifikasi',
+    'Peneliti': {
+      title: 'Peneliti',
+      badge: 'Laboratorium & Verifikasi',
       themeBg: 'bg-[#eaedff]',
       themeBorder: 'border-[#002575]/30',
       themeText: 'text-[#002575]',
@@ -127,7 +127,7 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
             <div className={`flex items-center gap-2.5 ${isCollapsed ? 'lg:justify-center lg:w-full' : ''}`}>
               <div
                 className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 shadow-xs ${
-                  userRole === 'Verifikator Laboratorium' ? 'bg-[#002575] text-white' : 'bg-[#003426] text-white'
+                  userRole === 'Peneliti' ? 'bg-[#002575] text-white' : 'bg-[#003426] text-white'
                 }`}
               >
                 <span className="material-symbols-outlined text-[20px]">{roleMeta.icon}</span>
@@ -183,39 +183,39 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
               <div className="grid grid-cols-3 gap-1">
                 <button
                   type="button"
-                  onClick={() => handleSwitchRole('Pelapor Publik')}
+                  onClick={() => handleSwitchRole('Penyerah')}
                   className={`px-1.5 py-1 rounded text-[10px] font-bold text-center transition-colors truncate ${
-                    userRole === 'Pelapor Publik'
+                    userRole === 'Penyerah'
                       ? 'bg-[#003426] text-white shadow-xs'
                       : 'bg-white text-[#475569] border border-[#e2e8f0] hover:bg-[#f1f5f9]'
                   }`}
-                  title="Pelapor Publik (Warga)"
+                  title="Penyerah (Warga / Publik)"
                 >
-                  Pelapor
+                  Penyerah
                 </button>
                 <button
                   type="button"
-                  onClick={() => handleSwitchRole('Operator Fasilitas')}
+                  onClick={() => handleSwitchRole('Petugas')}
                   className={`px-1.5 py-1 rounded text-[10px] font-bold text-center transition-colors truncate ${
-                    userRole === 'Operator Fasilitas'
+                    userRole === 'Petugas'
                       ? 'bg-[#003426] text-white shadow-xs'
                       : 'bg-white text-[#475569] border border-[#e2e8f0] hover:bg-[#f1f5f9]'
                   }`}
-                  title="Operator Fasilitas & Reaktor"
+                  title="Petugas Fasilitas & Reaktor"
                 >
-                  Operator
+                  Petugas
                 </button>
                 <button
                   type="button"
-                  onClick={() => handleSwitchRole('Verifikator Laboratorium')}
+                  onClick={() => handleSwitchRole('Peneliti')}
                   className={`px-1.5 py-1 rounded text-[10px] font-bold text-center transition-colors truncate ${
-                    userRole === 'Verifikator Laboratorium'
+                    userRole === 'Peneliti'
                       ? 'bg-[#002575] text-white shadow-xs'
                       : 'bg-white text-[#475569] border border-[#e2e8f0] hover:bg-[#f1f5f9]'
                   }`}
-                  title="Verifikator Laboratorium"
+                  title="Peneliti Laboratorium"
                 >
-                  Lab
+                  Peneliti
                 </button>
               </div>
             </div>
@@ -232,10 +232,10 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
           )}
 
           {/* =========================================================================
-              ROLE 1: PELAPOR PUBLIK (WARGA)
+              ROLE 1: PENYERAH (WARGA / PUBLIK)
               Strictly contains: Lapor Obat, Lacak Tiket Saya, Lokasi Drop Box, Edukasi Beranda
              ========================================================================= */}
-          {userRole === 'Pelapor Publik' && (
+          {userRole === 'Penyerah' && (
             <>
               {/* Feature 1: Laporkan Obat */}
               <button
@@ -332,10 +332,10 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
           )}
 
           {/* =========================================================================
-              ROLE 2: OPERATOR FASILITAS (OPERASIONAL FISIK & BIOREAKTOR)
+              ROLE 2: PETUGAS FASILITAS (OPERASIONAL FISIK & BIOREAKTOR)
               Strictly contains: Skrining Loket Fisik, Bioreaktor A & B, Registrasi Sampel, Audit Log
              ========================================================================= */}
-          {userRole === 'Operator Fasilitas' && (
+          {userRole === 'Petugas' && (
             <>
               {/* Feature 1: Skrining & Penerimaan Loket */}
               <button
@@ -449,10 +449,10 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
           )}
 
           {/* =========================================================================
-              ROLE 3: VERIFIKATOR LABORATORIUM (ANALISIS & SERTIFIKASI)
+              ROLE 3: PENELITI LABORATORIUM (ANALISIS & SERTIFIKASI)
               Strictly contains: Antrean Sampel, Input Uji Instrumen, Keputusan 3-Tier, Dossier/CoA
              ========================================================================= */}
-          {userRole === 'Verifikator Laboratorium' && (
+          {userRole === 'Peneliti' && (
             <>
               {/* Feature 1: Antrean Sampel Efluen */}
               <button
@@ -597,7 +597,7 @@ export const RoleSidebar: React.FC<RoleSidebarProps> = ({
               {!isCollapsed && <span>SOP &amp; Standar Regulasi</span>}
             </button>
 
-            {userRole !== 'Pelapor Publik' && (
+            {userRole !== 'Penyerah' && (
               <button
                 type="button"
                 onClick={onOpenJalurPengolahan}

@@ -140,7 +140,7 @@ export const LaporkanObatView: React.FC<LaporkanObatViewProps> = ({
       <div>
         <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#cce5ff] text-[#001d31] font-body text-[11px] font-semibold mb-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#006398]"></span>
-          FORMULIR INTAKE PELAPOR PUBLIK • v2.4 (SIMULASI)
+          FORMULIR PENYERAHAN OBAT • PERAN PENYERAH (SIMULASI)
         </div>
         <h1 className="font-headline text-[26px] md:text-[32px] text-[#003426] font-bold tracking-tight">
           Registrasi &amp; Pelaporan Obat Kedaluwarsa

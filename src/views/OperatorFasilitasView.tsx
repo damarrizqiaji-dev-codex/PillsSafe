@@ -182,7 +182,7 @@ export const OperatorFasilitasView: React.FC<OperatorFasilitasViewProps> = ({
                 <span>Fasilitas Penerimaan &amp; Pengelolaan Reaktor Riset</span>
               </div>
               <h1 className="font-headline text-[24px] md:text-[30px] font-bold text-[#131b2e] tracking-tight">
-                Konsol Operator Fasilitas &amp; Proses
+                Konsol Petugas Fasilitas &amp; Proses
               </h1>
               <p className="font-body text-[14px] text-[#404944] leading-relaxed">
                 Kendali terpadu untuk petugas penerimaan dan pengelola proses: inspeksi fisik sediaan, pemilahan status, alokasi Reaktor Riset A vs B terpisah, pemantauan tangki pascaproses, dan registrasi sampel efluen resmi.
@@ -604,7 +604,7 @@ export const OperatorFasilitasView: React.FC<OperatorFasilitasViewProps> = ({
                         required
                       />
                       <span className="text-[10px] text-[#64748b]">
-                        ID sampel unik yang akan dicocokkan oleh Verifikator Laboratorium.
+                        ID sampel unik yang akan dicocokkan oleh Peneliti Laboratorium.
                       </span>
                     </div>
 

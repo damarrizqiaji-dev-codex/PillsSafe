@@ -7,9 +7,9 @@ export type PageView =
   | 'verifikator-lab';
 
 export type UserRole =
-  | 'Pelapor Publik'
-  | 'Operator Fasilitas'
-  | 'Verifikator Laboratorium';
+  | 'Penyerah'
+  | 'Petugas'
+  | 'Peneliti';
 
 export type PhysicalIdentificationStatus =
   | 'Menunggu Pemeriksaan'

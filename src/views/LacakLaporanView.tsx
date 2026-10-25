@@ -860,8 +860,8 @@ export const LacakLaporanView: React.FC<LacakLaporanViewProps> = ({
                 </span>
               </div>
 
-              {/* ACTION FOR: Operator Fasilitas */}
-              {userRole === 'Operator Fasilitas' && (
+              {/* ACTION FOR: Petugas */}
+              {userRole === 'Petugas' && (
                 <div className="flex flex-col gap-3">
                   <div className="flex rounded bg-[#f1f5f9] p-0.5 text-[11px] font-semibold">
                     <button
@@ -1021,14 +1021,14 @@ export const LacakLaporanView: React.FC<LacakLaporanViewProps> = ({
                       className="w-full mt-2 py-2 rounded border border-[#003426] text-[#003426] hover:bg-[#ecfdf5] text-[12px] font-semibold transition-colors flex items-center justify-center gap-1.5"
                     >
                       <span className="material-symbols-outlined text-[16px]">engineering</span>
-                      <span>Buka Laman Konsol Operator Fasilitas Lengkap</span>
+                      <span>Buka Laman Konsol Petugas Fasilitas Lengkap</span>
                     </button>
                   )}
                 </div>
               )}
 
-              {/* ACTION FOR: Verifikator Laboratorium */}
-              {userRole === 'Verifikator Laboratorium' && (
+              {/* ACTION FOR: Peneliti */}
+              {userRole === 'Peneliti' && (
                 <form onSubmit={handleSaveLabVerification} className="flex flex-col gap-3">
                   <p className="text-[12px] text-[#475569]">
                     Masukkan hasil uji instrumental kromatografi, spektrometri massa, dan uji toksisitas hayati, lalu tetapkan keputusan verifikasi resmi.
@@ -1121,7 +1121,7 @@ export const LacakLaporanView: React.FC<LacakLaporanViewProps> = ({
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-[11px] font-bold text-[#334155]">Nama Verifikator</label>
+                    <label className="text-[11px] font-bold text-[#334155]">Nama Peneliti / Verifikator</label>
                     <input
                       type="text"
                       value={labForm.officerName}
@@ -1145,17 +1145,17 @@ export const LacakLaporanView: React.FC<LacakLaporanViewProps> = ({
                       className="w-full mt-1 py-2 rounded border border-[#002575] text-[#002575] hover:bg-[#eaedff] text-[12px] font-semibold transition-colors flex items-center justify-center gap-1.5"
                     >
                       <span className="material-symbols-outlined text-[16px]">biotech</span>
-                      <span>Buka Laman Portal Verifikator Lab Lengkap</span>
+                      <span>Buka Laman Portal Peneliti Lab Lengkap</span>
                     </button>
                   )}
                 </form>
               )}
 
-              {/* ACTION FOR: Pelapor Publik */}
-              {userRole === 'Pelapor Publik' && (
+              {/* ACTION FOR: Penyerah */}
+              {userRole === 'Penyerah' && (
                 <div className="flex flex-col gap-3">
                   <p className="text-[12px] text-[#475569] leading-relaxed">
-                    Anda sedang berada dalam mode <strong>Pelapor Publik</strong>. Anda dapat melihat perkembangan spesimen obat yang dilaporkan secara transparan.
+                    Anda sedang berada dalam mode <strong>Penyerah</strong>. Anda dapat melihat perkembangan spesimen obat yang diserahkan secara transparan.
                   </p>
                   <div className="p-3 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] flex flex-col gap-1 text-[12px]">
                     <span className="font-bold text-[#003426]">Petunjuk Penyerahan Fisik:</span>

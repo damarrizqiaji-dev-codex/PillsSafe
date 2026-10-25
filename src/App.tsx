@@ -20,14 +20,18 @@ export default function App() {
   const [currentView, setCurrentView] = useState<PageView>('beranda');
   const [userRole, setUserRole] = useState<UserRole>(() => {
     try {
-      const savedRole = localStorage.getItem(STORAGE_KEY_ROLE) as UserRole;
-      if (savedRole && ['Pelapor Publik', 'Operator Fasilitas', 'Verifikator Laboratorium'].includes(savedRole)) {
-        return savedRole;
+      const savedRole = localStorage.getItem(STORAGE_KEY_ROLE);
+      if (savedRole && ['Penyerah', 'Petugas', 'Peneliti'].includes(savedRole)) {
+        return savedRole as UserRole;
       }
+      // Migration from previous naming
+      if (savedRole === 'Pelapor Publik') return 'Penyerah';
+      if (savedRole === 'Operator Fasilitas') return 'Petugas';
+      if (savedRole === 'Verifikator Laboratorium') return 'Peneliti';
     } catch (e) {
       // Ignore
     }
-    return 'Pelapor Publik';
+    return 'Penyerah';
   });
 
   const [selectedBatchId, setSelectedBatchId] = useState<string>('BATCH-SIM-0941');
@@ -95,9 +99,9 @@ export default function App() {
       setCurrentView(viewParam);
       // Automatically sync appropriate role if entering dedicated views directly
       if (viewParam === 'operator-fasilitas') {
-        setUserRole('Operator Fasilitas');
+        setUserRole('Petugas');
       } else if (viewParam === 'verifikator-lab') {
-        setUserRole('Verifikator Laboratorium');
+        setUserRole('Peneliti');
       }
     }
     const batchParam = params.get('batch');
@@ -113,13 +117,13 @@ export default function App() {
 
   const handleRoleChange = (newRole: UserRole) => {
     setUserRole(newRole);
-    if (newRole === 'Pelapor Publik') {
+    if (newRole === 'Penyerah') {
       if (currentView === 'operator-fasilitas' || currentView === 'verifikator-lab') {
         setCurrentView('laporkan-obat');
       }
-    } else if (newRole === 'Operator Fasilitas') {
+    } else if (newRole === 'Petugas') {
       setCurrentView('operator-fasilitas');
-    } else if (newRole === 'Verifikator Laboratorium') {
+    } else if (newRole === 'Peneliti') {
       setCurrentView('verifikator-lab');
     }
   };

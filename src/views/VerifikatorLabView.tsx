@@ -231,7 +231,7 @@ export const VerifikatorLabView: React.FC<VerifikatorLabViewProps> = ({
                 <span>Laboratorium Validasi Lingkungan &amp; Sertifikasi Efluen</span>
               </div>
               <h1 className="font-headline text-[24px] md:text-[30px] font-bold text-[#131b2e] tracking-tight">
-                Portal Verifikator Laboratorium
+                Portal Peneliti Laboratorium
               </h1>
               <p className="font-body text-[14px] text-[#404944] leading-relaxed">
                 Pencatatan data analitis instrumen kromatografi (HPLC-UV), spektrometri massa (LC-MS/MS), dan uji toksisitas hayati (*Daphnia magna* 48h), serta penerbitan Keputusan Verifikasi Resmi berbasis kriteria ilmiah yang ketat.
@@ -665,7 +665,7 @@ export const VerifikatorLabView: React.FC<VerifikatorLabViewProps> = ({
                     />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <label className="font-bold text-[#334155]">Nama Verifikator Laboratorium</label>
+                    <label className="font-bold text-[#334155]">Nama Peneliti / Verifikator Laboratorium</label>
                     <input
                       type="text"
                       value={labForm.officerName}

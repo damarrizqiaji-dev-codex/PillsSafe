@@ -48,21 +48,21 @@ export const Header: React.FC<HeaderProps> = ({
 
   // Role visual badges & titles
   const roleDisplay = {
-    'Pelapor Publik': {
-      label: 'Pelapor Publik',
-      badge: 'Warga / Penyerah',
+    'Penyerah': {
+      label: 'Penyerah',
+      badge: 'Warga / Publik',
       bgClass: 'bg-[#ecfdf5] border-[#b4efd6] text-[#003426]',
       dotClass: 'bg-[#10b981]',
     },
-    'Operator Fasilitas': {
-      label: 'Operator Fasilitas',
-      badge: 'Petugas Loket & Reaktor',
+    'Petugas': {
+      label: 'Petugas',
+      badge: 'Fasilitas & Reaktor',
       bgClass: 'bg-[#ecfdf5] border-[#003426]/30 text-[#003426]',
       dotClass: 'bg-[#003426]',
     },
-    'Verifikator Laboratorium': {
-      label: 'Verifikator Lab',
-      badge: 'Analis & Sertifikasi',
+    'Peneliti': {
+      label: 'Peneliti',
+      badge: 'Laboratorium & Verifikasi',
       bgClass: 'bg-[#eaedff] border-[#002575]/30 text-[#002575]',
       dotClass: 'bg-[#002575]',
     },
@@ -74,8 +74,8 @@ export const Header: React.FC<HeaderProps> = ({
     'laporkan-obat': 'Laporkan Obat',
     'lacak-laporan': 'Lacak Laporan',
     'titik-pengumpulan': 'Titik Pengumpulan',
-    'operator-fasilitas': 'Konsol Operator',
-    'verifikator-lab': 'Portal Verifikasi Lab',
+    'operator-fasilitas': 'Konsol Petugas Fasilitas',
+    'verifikator-lab': 'Portal Peneliti Lab',
   };
 
   return (
@@ -116,9 +116,9 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Brand Logo */}
           <button
             onClick={() => {
-              if (userRole === 'Pelapor Publik') {
+              if (userRole === 'Penyerah') {
                 onNavigate('laporkan-obat');
-              } else if (userRole === 'Operator Fasilitas') {
+              } else if (userRole === 'Petugas') {
                 onNavigate('operator-fasilitas');
               } else {
                 onNavigate('verifikator-lab');
@@ -171,19 +171,19 @@ export const Header: React.FC<HeaderProps> = ({
               onChange={(e) => {
                 const newRole = e.target.value as UserRole;
                 onChangeRole(newRole);
-                if (newRole === 'Pelapor Publik' && (currentView === 'operator-fasilitas' || currentView === 'verifikator-lab')) {
+                if (newRole === 'Penyerah' && (currentView === 'operator-fasilitas' || currentView === 'verifikator-lab')) {
                   onNavigate('laporkan-obat');
-                } else if (newRole === 'Operator Fasilitas' && currentView !== 'operator-fasilitas') {
+                } else if (newRole === 'Petugas' && currentView !== 'operator-fasilitas') {
                   onNavigate('operator-fasilitas');
-                } else if (newRole === 'Verifikator Laboratorium' && currentView !== 'verifikator-lab') {
+                } else if (newRole === 'Peneliti' && currentView !== 'verifikator-lab') {
                   onNavigate('verifikator-lab');
                 }
               }}
               className="bg-white font-body text-[11px] md:text-[12px] font-bold text-[#131b2e] rounded px-2 py-1 focus:outline-none cursor-pointer border border-[#cbd5e1] max-w-[130px] sm:max-w-none shadow-2xs"
             >
-              <option value="Pelapor Publik">Pelapor Publik (Warga)</option>
-              <option value="Operator Fasilitas">Operator Fasilitas</option>
-              <option value="Verifikator Laboratorium">Verifikator Lab</option>
+              <option value="Penyerah">Penyerah (Warga)</option>
+              <option value="Petugas">Petugas (Fasilitas)</option>
+              <option value="Peneliti">Peneliti (Laboratorium)</option>
             </select>
           </div>
 
